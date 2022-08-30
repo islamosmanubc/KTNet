@@ -8,8 +8,8 @@ This repository has the Tensorflow implementation for the paper "KTNet: A Few-Sh
 * [Introduction](#introduction)
 * [Datasets](#datasets)
 * [Results](#results)
-* [Installation] (#installation)
-* [How to use] (#how-to-use)
+* [Installation](#installation)
+* [How to use](#how-to-use)
 
 ## Introduction
 This paper proposes a novel hybrid meta-learning network called KTNet. KTNet autonomously increases the number of labeled images, improving accuracy in data-constrained situations while also outperforming other state-of-the-art few-shot learning models. To accomplish this, KTNet leverages hybrid meta-learning to detect and cluster OOD images. This is done using self-supervised learning to learn a feature space that facilitates the clustering of OOD images. KTNet subsequently assigns pseudo labels to the clustered OOD images. One image is selected from each detected cluster and is added to the support set. The new support set has at least one labeled image for each class in the query set, including the in-distribution (ID) classes and OOD classes. Finally, KTNet applies few-shot learning on the pseudo labeled support set to classify the query set. To summarize, the novelties of this paper are as follows: 
