@@ -8,6 +8,8 @@ This repository has the Tensorflow implementation for the paper "KTNet: A Few-Sh
 * [Introduction](#introduction)
 * [Datasets](#datasets)
 * [Results](#results)
+* [Installation] (#installation)
+* [How to use] (#how-to-use)
 
 ## Introduction
 This paper proposes a novel hybrid meta-learning network called KTNet. KTNet autonomously increases the number of labeled images, improving accuracy in data-constrained situations while also outperforming other state-of-the-art few-shot learning models. To accomplish this, KTNet leverages hybrid meta-learning to detect and cluster OOD images. This is done using self-supervised learning to learn a feature space that facilitates the clustering of OOD images. KTNet subsequently assigns pseudo labels to the clustered OOD images. One image is selected from each detected cluster and is added to the support set. The new support set has at least one labeled image for each class in the query set, including the in-distribution (ID) classes and OOD classes. Finally, KTNet applies few-shot learning on the pseudo labeled support set to classify the query set. To summarize, the novelties of this paper are as follows: 
@@ -34,3 +36,38 @@ BCCD is a small-scale dataset for white blood cell detection and classification.
 | `KTNet_base`           | `57.7 ± 1.8` | `67.4 ± 1.7` | `41.8 ± 1.3` | `54.6 ± 1.3` | `38.0 ± 0.5` |
 | `KTNet`                | `65.1 ± 1.1` | `78.5 ± 0.9` | `49.3 ± 0.6` | `61.3 ± 0.5` | `44.8 ± 0.1` |
 | `KTNet-RESIST`         | `74.4 ± 0.8` | `82.6 ± 0.3` | `57.9 ± 0.4` | `65.1 ± 0.4` | `50.6 ± 0.1` |
+
+
+## Installation
+
+To run the code, you need to install:
+* python 2.7 or 3.5
+* Tensorflow-gpu v1.14.0
+Also, you need to install some extra packages:
+* scipy
+* scikit
+* opencv
+* pillow
+* matplot
+* tqdm
+
+## How to use
+
+You can do everything by manupilating the arguments in the file `mainKTNet.py`. Some of the important arguments are:
+* `Phase` has 4 possible values `pre` for pre-training, `meta` for meta-training/testing, `disc` for training the metric-based learning branch (MBB), and `zero` for zero shot testing
+* `metatrain` is a boolean variable, `True` runs the training and `False` runs the testing
+* `way_num` is the number of ways of each episode
+* `shot_num` is the number of shots (i.e., size of the support set in each episode)
+* `metatrain_dir` is the directory for the training dataset (e.g., the directory of mini-imagenet training classes)
+* `metatest_dir` the same but for testing dataset
+* `metaval_dir` the same but for validation dataset
+
+To train from scratch you need to run `mainKTNet.py` 3 times with this order:
+* `python mainKTNet.py --phase=pre`
+* `python mainKTNet.py --phase=meta`
+* `python mainKTNet.py --phase=disc`
+
+Then, for testing:
+* `python mainKTNet.py --phase=meta`   for the image classification without OOD
+* `python mainKTNet.py --phase=zero`   for the image classification with OOD
+* `python mainKTNet.py --phase=zero --shot-num=0`   for the pure OOD image classification 
