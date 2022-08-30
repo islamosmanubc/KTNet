@@ -38,11 +38,11 @@ Fewshot-CIFAR is constructed from CIFAR100 \cite{cifar100}. The dataset consists
 BCCD is a small-scale dataset for white blood cell detection and classification. It contains 5 different classes. Each class has 700 images. We used this dataset as an out-of-domain classification to test the generalization of the proposed work.
 
 ## Results
-|          (%)           | 𝑚𝑖𝑛𝑖 1-shot  | 𝑚𝑖𝑛𝑖 5-shot  | FC100 1-shot | FC100 5-shot |  BCCD 5-shot | 
-| ---------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `KTNet_base`           | `57.7 ± 1.8` | `67.4 ± 1.7` | `41.8 ± 1.3` | `54.6 ± 1.3` | `38.0 ± 0.5` |
-| `KTNet`                | `65.1 ± 1.1` | `78.5 ± 0.9` | `49.3 ± 0.6` | `61.3 ± 0.5` | `44.8 ± 0.1` |
-| `KTNet-RESIST`         | `74.4 ± 0.8` | `82.6 ± 0.3` | `57.9 ± 0.4` | `65.1 ± 0.4` | `50.6 ± 0.1` |
+|          (%)           |  mini-imagenet 1-shot  | mini-imagenet 5-shot  | FC100 1-shot | FC100 5-shot |  BCCD 5-shot | 
+| ---------------------- | ---------------------- | --------------------- | ------------ | ------------ | ------------ |
+| `KTNet_base`           |      `57.7 ± 1.8`      |     `67.4 ± 1.7`      | `41.8 ± 1.3` | `54.6 ± 1.3` | `38.0 ± 0.5` |
+| `KTNet`                |      `65.1 ± 1.1`      |     `78.5 ± 0.9`      | `49.3 ± 0.6` | `61.3 ± 0.5` | `44.8 ± 0.1` |
+| `KTNet-RESIST`         |      `74.4 ± 0.8`      |     `82.6 ± 0.3`      | `57.9 ± 0.4` | `65.1 ± 0.4` | `50.6 ± 0.1` |
 
 
 ## Installation
