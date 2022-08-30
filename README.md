@@ -20,7 +20,7 @@ This paper proposes a novel hybrid meta-learning network called KTNet. KTNet aut
 * KTNet improves performance (even during the testing phase) by autonomously increasing the number of labeled images and adding them to the support set.
 
 <p align="center">
-    <img src="https://github.com/islamosmanubc/KTNet/blob/main/figures/ktnet.png" width="800"/>
+    <img src="https://github.com/islamosmanubc/KTNet/blob/main/figures/ktnet.png" width="1200"/>
 </p>
 
 > Figure: The proposed hybrid meta-learning network (KTNet) architecture. The green arrow represents the training phase (supervised learning using the support set). The yellow arrow represents the testing phase (classifying the query set). The purple arrow represents the selection of samples from the query set and adding them to the support set (to increase the number of shots). The whole process is repeated until no more samples from the query set are added to the support set.
